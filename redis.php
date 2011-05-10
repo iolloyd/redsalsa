@@ -17,6 +17,11 @@ class Redis {
 		fclose($this->socket);
 	}
 
+	/**
+	 * Todos la llamadas de redis entran aqui. Para ver un explicacion como funciona
+	 * __call mira el docs in http://www.php.net
+
+	 */
 	public function __call($name, $args) {
 		array_unshift($args, strtoupper($name));
 		$cmd    = sprintf('*%d%s%s%s', count($args), NL, $this->argsWithLengths($args), NL);
@@ -29,7 +34,6 @@ class Redis {
 			}
 		}
 
-		$this->chunkSize = 2;
 		$response = $this->handleReply();
 		return $response;
 	}
