@@ -1,9 +1,5 @@
-Redsalsa - un cliente en php para redis
+Redsalsa - a simple client for Redis
 --------------------------------------
-El nombre redsalsa es una abreviatura de dos palabras Redis y Adsalsa. Adsalsa es el nombre de la empresa de donde trabajo y el otra palabra es obvio (espero).
 
-La filosofia atras de este client fuera hacerlo en una manera muy facil de aprender y ágil de usar y extendir.
-
-Utilizando __call en php como method_missing en ruby, cada llamada de redis pasa por __call y asi no tenemos que definir cada llamada replicando el API del cliente de redis.
-
+The philosophy behind this client is to build a naive application that will work for all future additions of redis.
 
