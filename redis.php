@@ -56,13 +56,13 @@ class Rdis {
      */
     protected function handleReply(){
 		$reply = trim(fgets($this->socket, 512));
-		$responses = array(
+		$responses = [ 
 			'+' => 'replySingle' , '-' => 'replyError'     , ':' => 'replyInt' , 
 			'$' => 'replyBulk'   , '*' => 'replyMultiBulk'
-		);
-		$response_code = substr($reply, 0, 1);
+		];
+		$responseCode = substr($reply, 0, 1);
 		try {
-			$func = [$this, $responses[$response_code]];
+			$func = [$this, $responses[$responseCode]];
 			$response = call_user_func_array($func, [$reply]);
 			return $response;
 		} catch (Exception $e) {
@@ -98,7 +98,7 @@ class Rdis {
 		if ($count == '-1') {
 			return null;
 		}
-		$response = array();
+		$response = [];
 		for ($i = 0; $i < $count; $i++) {
 			$read = trim(fgets($this->socket, 512));
 			$size = substr($read, 1);
