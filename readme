@@ -1,5 +1,5 @@
-Redsalsa - a simple client for Redis
---------------------------------------
+Redsalsa - a minimalist php client for Redis
+--------------------------------------------
 
 The philosophy behind this client is to build a naive application that will work for all future additions of redis.
 
